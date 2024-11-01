@@ -2,6 +2,8 @@
 
 LOG_DIR="../myapp/logs"
 
+echo "Verificando os logs no diretorio $LOG_DIR" 
+
 find $LOG_DIR -name "*.log" -print0 | while IFS= read -r -d '' arquivo; do
         grep "ERROR" $arquivo > "${arquivo}.filtrado"
         grep "SENSITIVE_DATA" $arquivo >> "${arquivo}.filtrado"
