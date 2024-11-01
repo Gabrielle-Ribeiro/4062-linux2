@@ -1,9 +1,6 @@
 #!/bin/bash
 
 LOG_DIR="../myapp/logs"
-ARQUIVO_DIR="../myapp/logs-processados"
-
-mkdir -p $ARQUIVO_DIR
 
 find $LOG_DIR -name "*.log" -print0 | while IFS= read -r -d '' arquivo; do
         grep "ERROR" $arquivo > "${arquivo}.filtrado"
